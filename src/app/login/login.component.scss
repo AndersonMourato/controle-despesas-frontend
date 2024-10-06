@@ -1,57 +1,136 @@
-.container-bg {
-    background-image: url(../../assets/imagem/financas.jpg);
-    opacity: 80%;
-    background-repeat: no-repeat;
-    position: relative;
-    height: 98vh;
-    width: 99vw;
-    background-size: cover;
-  }
-  
-  
-  .form-field {
-    width: 200px;
-  }
-  
-  .full-width {
-    width: 100%;
-  }
-  
-  .container {
-    background: white;
-    font-family: arial;
-    font-size: 14px;
-    margin: 5px;
-    width: 400px;
-    height: 300px;
-    border: 1px solid gray;
-    border-radius: 20px;
-    padding: 15px;
-  }
-  
-  .imagem {
-    margin-top: 10px;
-  }
-  
-  .child {
-    width: 350px;
-    height: 50px;
+$cor0: #ffffff;
+$cor01: #993399;
+$cor02: #7e2d7e;
+$cor03: #642764;
+$cor04: #4b204b;
+$cor05: #341933;
+$cor06: #1e111d;
+
+$cor10: #341933a8;
+$cor13: #642764dd;
+$cor15: #9e889e3d;
+$cor16: #baa1ba65;
+
+
+.container{
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $cor10;
+}
+
+.imgBackground{
+    position: fixed;
+    width: 105%;
+    z-index: -10;
+}
+
+.title{
+    color: $cor0;
     text-align: center;
-    /* Center horizontally*/
-    margin: 0 auto;
-    padding: 5px 0;
+    vertical-align: middle;
+}
+
+.content-form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $cor13;
+    max-width: 50%;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 1px 1px 3px $cor05;
+}
+
+.form-groups{
+    margin-top: 5px;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    overflow: hidden;
+    background-color: $cor15;
+}
+.form-inputs{
+    width: 100%;
+    height: 100%;
+    border: none;
+    margin: 0px;
+    padding: 0px 10px;
+    outline: none;
+    background: none;
+    color: $cor0;
+}
+input::-webkit-input-placeholder {
+    color: #ffffff7b;
   }
   
-  .inline {
-    display: inline-block;
-    padding: 30px;
+  input:-moz-placeholder {
+    color: #ffffff7b;
   }
   
-  .material-icons {
-    font-size: 25px;  /* Preferred icon size 24, 36, 48*/
+  input::-moz-placeholder {
+    color: #ffffff7b;
   }
   
-  .button {
-    margin: 15px;
+  input:-ms-input-placeholder {
+    color: #ffffff7b;
   }
   
+.form-groups:focus-within{
+    border: solid 1.5px $cor03;
+    background-color: $cor16;
+}
+.form-groups.buttons{
+    background: none;
+    border: none;
+}
+
+.icon-passsword{
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 5px;
+    color: $cor04;
+    margin-right: 10px;
+}
+
+.button {
+    background-color: $cor0;
+    color: $cor03;
+    border: solid 1px $cor04;
+    padding: 8px 16px;
+    border-radius: 20px;
+    margin: 2px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 2px 2px 3px $cor10;
+}
+  
+.button:hover {
+    background-color: $cor03;
+    color: $cor0; 
+}
+.button:active {
+    background-color: $cor04;
+}
+.button:disabled {
+    background-color: $cor04; 
+    color: $cor15;
+    cursor: default;
+}
+
+
+
+@media screen and (max-width: 400px) {
+    .imgBackground{
+        width: auto;
+        height: 100%;
+    }
+}

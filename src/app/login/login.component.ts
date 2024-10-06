@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpStatusCode } from '@angular/common/http';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 // libs javascript
 import Swal from 'sweetalert2';
+import 'animate.css'
 // modules
 import { MaterialModule } from '../material/material.module';
 // services
@@ -11,6 +12,7 @@ import { LoginService } from '../shared/services/login.service';
 // Models
 import { ILogin } from '../shared/models/login.interface';
 import { AppStateService } from '../shared/services/app-state.service';
+
 
 @Component({
   selector: 'app-login',
@@ -57,4 +59,11 @@ export class LoginComponent {
       }
     })
   }
+
+  hide = signal(true);
+  clickEvent(event: MouseEvent) {
+    this.hide.set(!this.hide());
+    event.stopPropagation();
+  }
+
 }
