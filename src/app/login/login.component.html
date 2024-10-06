@@ -1,44 +1,48 @@
 <div class="container">
-  <img class="imgBackground animate__animated animate__pulse" src="assets/imagem/financas.jpg" alt="Background"/>
+  <img class="imgBackground animate__animated animate__pulse" src="assets/imagem/financas.jpg" alt="Background" />
   <div class="content-form">
-          <!-- formulario -->
-          <form [formGroup]="formulario" novalidate>
+    <!-- formulario -->
+    <form [formGroup]="formulario" novalidate>
 
-            <div class="title animate__animated animate__rubberBand">
-              <h1><mat-icon>lock_person</mat-icon> Login </h1>
-            </div>
+      <div class="title animate__animated animate__rubberBand">
+        <h1><mat-icon>lock_person</mat-icon> Login </h1>
+      </div>
 
-            <div class="form-groups">
-                <input class="form-inputs" matInput formControlName="email" placeholder="meuemail@email.com">
-            </div>  
+      <div class="form-groups">
+        <input class="form-inputs" matInput formControlName="email" placeholder="email@email.com"
+          [ngClass]="{'input-error': formulario.get('email')?.invalid && (formulario.get('email')?.dirty || formulario.get('email')?.touched)}">
+      </div>
+      @if(formulario.get('email')?.invalid && (formulario.get('email')?.dirty || formulario.get('email')?.touched)){
+        @if(formulario.get('email')?.hasError('required')) {
+          <small class="msg-error">* campo obrigatório. </small>
+        }
+      }
 
-            <div class="form-groups">
-                <input class="form-inputs" matInput [type]="hide() ? 'password' : 'text'" formControlName="senha" placeholder="senha">
-            
-                  <mat-icon class="icon-passsword"
-                  (click)="clickEvent($event)"
-                  [attr.aria-label]="'Hide password'"
-                  [attr.aria-pressed]="hide()">
-                  {{hide() ? 'visibility_off' : 'visibility'}}
-                </mat-icon>
-            </div>
+      <div class="form-groups">
+        <input class="form-inputs" matInput [type]="hide() ? 'password' : 'text'" formControlName="senha"
+          placeholder="senha"
+          [ngClass]="{'input-error': formulario.get('senha')?.invalid && (formulario.get('senha')?.dirty || formulario.get('senha')?.touched)}">
+        <mat-icon class="icon-passsword" (click)="clickEvent($event)" [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide()">
+          {{hide() ? 'visibility_off' : 'visibility'}}
+        </mat-icon>
+      </div>
+      @if(formulario.get('senha')?.invalid && (formulario.get('senha')?.dirty || formulario.get('senha')?.touched)){
+        @if(formulario.get('senha')?.hasError('required')) {
+          <small class="msg-error">* campo obrigatório. </small>
+        }
+      }
 
-            <div class="form-groups buttons">
-              <button 
-                  class="button"
-                  [disabled]="formulario.invalid"
-                  (click)="onEntrar()">
-                  Entrar
-                </button>
-            </div>
+      <div class="form-groups buttons">
+        <button class="button" [disabled]="formulario.invalid" (click)="onEntrar()">
+          Entrar
+        </button>
+      </div>
 
-            <div class="form-groups buttons">
-                <button class="button">cadastre-se</button>
-                <button class="button">recuperar senha</button>
-            </div>
-          </form>
-          <!-- formulario -->
-        </div>
+      <div class="form-groups buttons">
+        <a class="button-link" [routerLink]="['/cadastro']">cadastre-se</a>
+        <a class="button-link">esqueceu a senha?</a>
+      </div>
+    </form>
   </div>
-  
-  
+</div>

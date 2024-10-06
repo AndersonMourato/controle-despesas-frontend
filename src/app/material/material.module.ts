@@ -15,8 +15,11 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatIconModule, MatIconRegistry } from '@angular/material/icon'
 import { DefaultMatCalendarRangeStrategy, MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
+import { RouterModule } from '@angular/router';
 
 const material = [
+  CommonModule,
+  RouterModule,
   MatIconModule,
   MatMenuModule,
   MatInputModule,
@@ -46,7 +49,6 @@ export const DATE_FORMATS = {
 @NgModule({
   declarations: [],
   imports: [
-    CommonModule,
     material
   ],
   exports: [

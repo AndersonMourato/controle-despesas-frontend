@@ -14,7 +14,7 @@ $cor16: #baa1ba65;
 
 .container{
     width: 100vw;
-    height: 100vh;
+    height: 100%;
     overflow: hidden;
     display: flex;
     justify-content: center;
@@ -23,8 +23,10 @@ $cor16: #baa1ba65;
 }
 
 .imgBackground{
+    pointer-events: none;
     position: fixed;
     width: 105%;
+    filter: blur(5px);
     z-index: -10;
 }
 
@@ -35,19 +37,19 @@ $cor16: #baa1ba65;
 }
 
 .content-form{
-    display: flex;
-    justify-content: center;
     align-items: center;
     background-color: $cor13;
+    min-width: 30%;
     max-width: 50%;
-    padding: 15px;
+    padding: 15px 30px;
     border-radius: 15px;
     box-shadow: 1px 1px 3px $cor05;
 }
 
 .form-groups{
-    margin-top: 5px;
-    height: 40px;
+    margin-top: 8px;
+    height: 50px;
+    width: 100%;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -66,6 +68,15 @@ $cor16: #baa1ba65;
     background: none;
     color: $cor0;
 }
+.input-error{
+    background-color: rgba(235, 118, 118, 0.261);
+    border-bottom: solid 2px red;
+}
+.msg-error{
+    margin-left: 8px;
+    color: red;
+}
+
 input::-webkit-input-placeholder {
     color: #ffffff7b;
   }
@@ -87,6 +98,8 @@ input::-webkit-input-placeholder {
     background-color: $cor16;
 }
 .form-groups.buttons{
+    display: flex;
+    flex-direction: column;
     background: none;
     border: none;
 }
@@ -105,7 +118,7 @@ input::-webkit-input-placeholder {
     background-color: $cor0;
     color: $cor03;
     border: solid 1px $cor04;
-    padding: 8px 16px;
+    padding: 8px 25px;
     border-radius: 20px;
     margin: 2px;
     cursor: pointer;
@@ -113,6 +126,21 @@ input::-webkit-input-placeholder {
     box-shadow: 2px 2px 3px $cor10;
 }
   
+.button-link{
+    background: none;
+    font-size: 0.8rem;
+    font-weight: 100;
+    color: rgba(255, 255, 255, 0.526);
+    text-align: center;
+    margin: 2px 5px;
+    cursor: pointer;
+}
+
+.button-link:hover{
+    color: $cor0;
+    font-weight: 400;
+}
+
 .button:hover {
     background-color: $cor03;
     color: $cor0; 
@@ -127,10 +155,13 @@ input::-webkit-input-placeholder {
 }
 
 
-
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 460px) {
     .imgBackground{
         width: auto;
         height: 100%;
+    }
+    .content-form{
+        min-width: 65%;
+        max-width: 75%;
     }
 }
