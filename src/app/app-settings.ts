@@ -7,4 +7,8 @@ export class AppSettings{
     static get API_LANCAMENTOS(){
         return '/api/lancamento';
     }
+
+    static get API_USUARIO(){
+        return '/api/usuario';
+    }
 }
